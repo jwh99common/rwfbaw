@@ -34,7 +34,7 @@ export const  products = [
         description: "Limited edition digital print of mountain landscape. High quality giclee print.",
         price: 25,
         category: "digital",
-        image: "/images/g.png",
+        image: "/images/g1.png",
         
         images: [
             "/images/g2.png",

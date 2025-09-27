@@ -6,6 +6,7 @@
     <title>Art Gallery - Food Bank Art Work</title>
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/gallery.css">
+    <link rel="stylesheet" href="/css/cart.css">
 </head>
 <body>
     <header>
@@ -14,6 +15,9 @@
                 <div class="logo">Food Bank Art Work</div>
                 <div class="cart-summary">
                     <span>Gallery</span>
+                    <button class="cart-toggle" onclick="toggleCart()">
+                        Cart (<span id="cart-count">0</span>) • £<span id="cart-total">0</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -63,6 +67,33 @@
         </div>
     </div>
 
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2>Shopping Cart</h2>
+            <button class="cart-close" onclick="closeCart()">&times;</button>
+        </div>
+        
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be inserted here -->
+        </div>
+        
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total: £<span id="cartFooterTotal">0</span></span>
+            </div>
+            <div class="cart-actions">
+                <button class="cart-action-btn continue-shopping" onclick="closeCart()">
+                    Continue Shopping
+                </button>
+                <button class="cart-action-btn checkout-btn" id="checkoutBtn" onclick="proceedToCheckout()" disabled>
+                    Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Modal for product details -->
     <div id="productModal" class="modal">
         <div class="modal-content">
@@ -77,17 +108,14 @@
                     <span id="modalPrice" style="font-size: 1.5rem; font-weight: bold; color: #27ae60;"></span>
                     <span id="modalCategory" class="product-category"></span>
                 </div>
-                <!-- Etsy button instead of Add to Cart -->
-                <a id="modalEtsyLink" class="buy-on-etsy" href="https://etsy.com/shop/YourShop" target="_blank">
-                    Buy on Etsy
-                </a>
+                <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
             </div>
         </div>
     </div>
 
     <!-- JavaScript files -->
-    <!--<script src="/js/products.js"></script>-->
-    <script src="/js/gallery.js"></script>
+    <script src="/js/products.js"></script>
+    <script src="/js/cart.js"></script>
     <script src="/js/modal.js"></script>
     <script src="/js/main.js"></script>
 </body>

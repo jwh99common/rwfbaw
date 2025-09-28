@@ -1,7 +1,42 @@
 let currentCategory = 'all';
 
+/**
+ * Loads product data from a JSON file.
+ * Returns an array of product objects or logs an error if fetch fails.
+ */
+async function loadProducts() {
+  try {
+    const response = await fetch('/data/products.json', {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      cache: 'no-store' // optional: bypass browser cache for fresh data
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const products = await response.json();
+
+    if (!Array.isArray(products)) {
+      throw new Error('Invalid product format: expected an array');
+    }
+
+    return products;
+  } catch (error) {
+    console.error('❌ Failed to load products:', error);
+    return []; // fallback to empty array
+  }
+}
+
+// Load and render products
+loadProducts().then(products => {
+  renderProducts(products);
+});
+
 // Render products based on current filter
-export function renderProducts(productList) {
+function renderProducts(productList) {
   const gallery = document.getElementById('gallery');
   const filteredProducts = currentCategory === 'all'
     ? productList
@@ -28,7 +63,7 @@ export function renderProducts(productList) {
 }
 
 // Setup category filters
-export function setupFilters(productList) {
+function setupFilters(productList) {
   document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -40,6 +75,8 @@ export function setupFilters(productList) {
 }
 
 // Get product by ID
-export function getProductById(id, productList) {
+function getProductById(id, productList) {
   return productList.find(p => p.id === id);
 }
+
+export { loadProducts, renderProducts, setupFilters,  getProductById};

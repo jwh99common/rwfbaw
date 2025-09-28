@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Art Gallery – Food Bank Art Work</title>
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/gallery.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">Food Bank Art Work</div>
+        <nav class="main-nav">
+          <a href="index.html" class="active">Gallery</a>
+ 
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="mission-statement">
+      <h2>Supporting Local Food Banks Through Art</h2>
+      <p>
+        Every purchase goes directly to helping families in need. Browse our
+        collection and make a difference.
+      </p>
+    </section>
+
+    <!-- Filter buttons -->
+    <div class="filter-bar">
+      <button class="filter-btn active" data-category="all">All Artwork</button>
+      <button class="filter-btn" data-category="painting">Paintings</button>
+      <button class="filter-btn" data-category="drawing">Drawings</button>
+      <button class="filter-btn" data-category="digital">Digital Art</button>
+      <button class="filter-btn" data-category="photography">Photography</button>
+    </div>
+
+    <!-- Product gallery -->
+    <div class="gallery" id="gallery">
+      <!-- Products will be inserted here by JavaScript -->
+    </div>
+
+    <!-- Impact stats -->
+    <section class="stats">
+      <h2>Our Impact So Far</h2>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-number">127</span>
+          <div class="stat-label">Artworks Sold</div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">£4,250</span>
+          <div class="stat-label">Raised for Food Banks</div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">2,800</span>
+          <div class="stat-label">Meals Provided</div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">15</span>
+          <div class="stat-label">Families Helped</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal for product details -->
+  <div id="productModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="modal-header">
+        <h2 id="modalTitle"></h2>
+      </div>
+      <div class="modal-body">
+        <div class="image-carousel">
+          <button id="prevImage" class="carousel-btn left-btn" aria-label="Previous image">‹</button>
+          <img id="modalImage" class="modal-image" src="" alt="" />
+          <button id="nextImage" class="carousel-btn right-btn" aria-label="Next image">›</button>
+        </div>
+        <p id="modalDescription"></p>
+        <div class="product-details">
+          <span id="modalPrice" class="product-price"></span>
+          <span id="modalCategory" class="product-category"></span>
+        </div>
+        <a
+          id="modalEtsyLink"
+          class="buy-on-etsy"
+          href="https://etsy.com/shop/YourShop"
+          target="_blank"
+        >
+          Buy on Etsy
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript entry point -->
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>

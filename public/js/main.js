@@ -20,10 +20,10 @@ document.getElementById('gallery').addEventListener('click', (e) => {
 
   if (card && card.dataset.id) {
     const productId = parseInt(card.dataset.id);
-    console.log("Parsed productId:", productId);
+    //console.log("Parsed productId:", productId);
 
     const product = products.find(p => p.id === productId);
-    console.log("Product found:", product);
+    //console.log("Product found:", product);
 
     if (product) openModal(product);
   } else {

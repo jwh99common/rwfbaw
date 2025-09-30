@@ -9,6 +9,7 @@ async function initGallery() {
   setupFilters(products);
   setupModal();
 
+  
   console.log("InitGallery called with:", products);
 
   // Handle click events for modal opening

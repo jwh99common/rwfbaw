@@ -24,13 +24,22 @@ export function setupModal() {
       updateModalImage();
     }
   });
+
+  // Optional: keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (!modal.classList.contains('open')) return;
+    if (e.key === 'ArrowRight') nextBtn.click();
+    if (e.key === 'ArrowLeft') prevBtn.click();
+    if (e.key === 'Escape') closeBtn.click();
+  });
 }
 
 export function openModal(product) {
   const modal = document.getElementById('productModal');
-  currentImages = product.images && product.images.length > 0
-    ? product.images
-    : [product.image];
+
+  // Combine main image with additional images
+  const allImages = [product.image, ...(product.images || [])];
+  currentImages = allImages;
   currentIndex = 0;
 
   document.getElementById('modalTitle').textContent = product.title;
@@ -47,4 +56,15 @@ function updateModalImage() {
   const modalImg = document.getElementById('modalImage');
   modalImg.src = currentImages[currentIndex];
   modalImg.alt = `Artwork ${currentIndex + 1}`;
+
+  // Fallback for broken images
+  //modalImg.onerror = () => {
+    //modalImg.src = '/image-assets/fallback.jpg';
+  //};
+
+  // Optional: update image counter
+  const counter = document.getElementById('imageCounter');
+  if (counter) {
+    counter.textContent = `${currentIndex + 1} / ${currentImages.length}`;
+  }
 }

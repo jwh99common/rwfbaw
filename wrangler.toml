@@ -15,7 +15,7 @@ watch_dir = "."
 #bucket_name = "r2-test"
 #preview_bucket_name = "r2-test
 
-bonding = "r2_images"
+binding = "r2_images"
 bucket_name = "r2-images"
 preview_bucket_name = "r2-images"
 

@@ -4,14 +4,13 @@ let currentCategory = 'all';
  * Loads product data from a JSON file.
  * Returns an array of product objects or logs an error if fetch fails.
  */
-
 async function loadProducts() {
   try {
-    const response = await fetch('/products', {
+    const response = await fetch('/data/products.json', {
       headers: {
         'Content-Type': 'application/json'
       },
-      cache: 'no-store'
+      cache: 'no-store' // optional: bypass browser cache for fresh data
     });
 
     if (!response.ok) {
@@ -26,13 +25,10 @@ async function loadProducts() {
 
     return products;
   } catch (error) {
-    console.error('❌ Failed to load products from D1:', error);
-    return [];
+    console.error('❌ Failed to load products:', error);
+    return []; // fallback to empty array
   }
 }
-
-
-
 
 // Load and render products
 loadProducts().then(products => {

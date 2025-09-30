@@ -1,0 +1,29 @@
+name = "rwfbaw"
+compatibility_date = "2025-09-28"
+functions = "./functions"
+
+[project]
+compatibility_date = "2025-09-28"
+
+[build]
+command = "echo 'no build needed'"
+cwd = "."
+watch_dir = "."
+
+[[r2_buckets]]
+#binding = "r2_test
+#bucket_name = "r2-test"
+#preview_bucket_name = "r2-test
+
+bonding = "r2_images"
+bucket_name = "r2-images"
+preview_bucket_name = "r2-images"
+
+#binding = "image_assets"
+#bucket_name = "image-assets"
+#preview_bucket_name = "image-assets"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "gallery-db"
+database_id = "8a611c67-f995-4899-92af-134e12bf5461"

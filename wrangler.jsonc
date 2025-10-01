@@ -1,6 +1,25 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "rwfbaw",
-  "compatibility_date": "2025-09-24",
-  "pages_build_output_dir": "./public"
+	"name": "rwfbaw",
+	"compatibility_date": "2025-09-28",
+	"pages_build_output_dir": "./public",
+	"r2_buckets": [
+		{
+			"binding": "r2_images",
+			"bucket_name": "r2-images",
+			"preview_bucket_name": "r2-images"
+			//"binding": "r2_test",
+			//"bucket_name": "r2-test",
+			//"preview_bucket_name": "r2-test",
+			//"binding": "image_assets",
+			//"bucket_name": "image-assets",
+			//"preview_bucket_name": "image-assets"
+		}
+	],
+	"d1_databases": [
+		{
+			"binding": "gallery_db",
+			"database_name": "gallery-db",
+			"database_id": "8a611c67-f995-4899-92af-134e12bf5461"
+		}
+	]
 }
